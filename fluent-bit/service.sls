@@ -12,9 +12,8 @@ configure-{{ bit.pkg }}-service:
 {{ bit.pkg }}-service:
   service.running:
     - name: {{ bit.pkg }}
-    - enable: True
     - watch:
       - file: {{ bit.pkg }}-config
       - file: {{ bit.pkg }}-parsers
     - require:
-        - configure-{{ bit.pkg }}-service
+      - file: configure-{{ bit.pkg }}-service
